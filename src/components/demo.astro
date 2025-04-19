@@ -1,0 +1,35 @@
+---
+import { Picture } from "astro:assets";
+import heroImage from "assets/bigmac.png";
+import Link from "./ui/link.astro";
+---
+
+<div class="flex items-center justify-center my-8 border mb-20">
+    <div class="max-w-xl">
+        <Picture
+        src={heroImage}
+        alt="Astronaut in the air"
+        widths={[200, 400, 600]}
+        sizes="(max-width: 350px) 100vw, 620px"
+        loading="eager"
+        format="avif"
+      />
+    </div>
+    <div class="max-w-xl">
+        <h1 class="mb-5 text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            New Burger, Same Shit!
+        </h1>
+        <p class="text-lg mt-4 text-slate-600 max-w-xl mb-4">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Officia ratione qui quas illo totam delectus laborum officiis debitis rem saepe.
+        </p>
+        <Link
+        href="#"
+        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
+        target="_blank"
+        class="flex gap-1 items-center justify-center max-w-xs"
+        rel="noopener">
+         Buy today, regret tomorrow.
+      </Link>
+    </div>
+</div>
