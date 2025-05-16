@@ -8,3 +8,5 @@ window.addEventListener("DOMContentLoaded", () => {
     window.feather.replace();
   }
 });
+
+console.log("everything works yay");
