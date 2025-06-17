@@ -1,0 +1,167 @@
+---
+import car1 from "../assets/vehicle.avif";
+import car2 from "../assets/vehicle2.avif";
+import car3 from "../assets/vehicle3.avif";
+import car4 from "../assets/vehicle.avif";
+import car5 from "../assets/vehicle2.avif";
+import car6 from "../assets/vehicle3.avif";
+
+const { class: className = "", ...rest } = Astro.props;
+
+const slides = [
+  {
+    img: car1.src,
+    alt: "Car 1 - Gli esordi.",
+    title: "The Ultimate Drive",
+    desc: "All'inizio, mi sono guardato intorno senza riuscire a trovare l'auto dei miei sogni. Così ho deciso di costruirmela da solo. - Prof. Dr. Ing. h.c. Ferry Porsche",
+  },
+  {
+    img: car2.src,
+    alt: "Car 2 - Precision Engineered",
+    title: "Precision Engineered",
+    desc: "Crafted for exhilarating moments and unmatched control.",
+  },
+  {
+    img: car3.src,
+    alt: "Car 3 - Future of Motion",
+    title: "Future of Motion",
+    desc: "Innovation meets tradition in a breathtaking design.",
+  },
+  {
+    img: car4.src,
+    alt: "Car 4 - Dynamic Performance",
+    title: "Dynamic Performance",
+    desc: "Unleash the raw power with every acceleration.",
+  },
+  {
+    img: car5.src,
+    alt: "Car 5 - Masterpiece of Craft",
+    title: "Masterpiece of Craft",
+    desc: "Artistry and engineering in perfect harmony.",
+  },
+  {
+    img: car6.src,
+    alt: "Car 6 - Iconic Legacy",
+    title: "Iconic Legacy",
+    desc: "Driving the future, honoring the past.",
+  },
+];
+---
+
+<section class="section relative">
+  <div class="py-6">
+    <div class="container max-w-[100vw] w-full">
+      <div class="flex items-center gap-3">
+        <div
+          class="is-brands-slider min-h-[800px] flex items-center overflow-x-hidden w-full">
+          <div class="swiper-wrapper">
+            {
+              slides.map(({ title, desc, img, alt }) => (
+                <div class="swiper-slide relative !w-auto">
+                  <img
+                    src={img}
+                    alt={alt}
+                    class="object-contain z-40 h-96 rounded-t-3xl"
+                  />
+                  <div
+                    class="absolute inset-x-0 bottom-0 h-[70%] flex flex-col justify-end p-8 text-white rounded-b-3xl
+                               bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 class="text-3xl md:text-1xl font-semibold mb-2 leading-tight">
+                      {title}
+                    </h3>
+                    <p class="text-xl leading-snug text-md">{desc}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- // SECTION: Old useless? -->
+<!-- <section>
+  <div
+    class="min-h-[650px] relative rounded-xl overflow-hidden object-cover flex-shrink-0
+                    md:h-[300px] sm:h-[250px]">
+    <img
+      src={slide.img}
+      alt={slide.alt}
+      class="w-auto h-full max-w-[850px] object-cover block"
+    />
+    <div
+      class="absolute inset-x-0 bottom-0 h-[70%] flex flex-col justify-end p-8 text-white
+                      bg-gradient-to-t from-black/80 to-transparent">
+      <h3 class="text-3xl font-semibold mb-2 leading-tight">
+        {slide.title}
+      </h3>
+      <p class="text-xl leading-snug text-md">
+        {slide.description}
+      </p>
+    </div>
+  </div>
+</section> -->
+
+<style>
+  .swiper-slide {
+    width: auto !important;
+    height: 500px;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  import { Autoplay } from "swiper/modules";
+
+  const originalWarn = console.warn;
+  console.warn = function (...args) {
+    if (
+      args[0] &&
+      typeof args[0] === "string" &&
+      args[0].includes("Swiper Loop Warning")
+    ) {
+      return;
+    }
+    originalWarn.apply(console, args);
+  };
+
+  function initSwiper() {
+    new Swiper(".is-brands-slider", {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      freeMode: true,
+      //   freeModeMomentum: true,
+      centeredSlides: false,
+      // loop: true,
+      allowTouchMove: true,
+      breakpoints: {
+        // when window width is >= 320px
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // when window width is >= 480px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        // when window width is >= 640px
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      },
+    });
+  }
+
+  document.addEventListener("astro:page-load", initSwiper);
+
+  if (document.readyState === "complete") {
+    initSwiper();
+  } else {
+    window.addEventListener("load", initSwiper);
+  }
+</script>

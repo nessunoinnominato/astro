@@ -1,0 +1,186 @@
+---
+// 1. Import the core Splide JavaScript library
+import Splide from "@splidejs/splide";
+// 2. Import Splide's basic CSS theme
+import "@splidejs/splide/css";
+
+// 3. Import your images. Astro handles these assets directly in .astro files.
+//    Adjust paths relative to this .astro file as needed.
+import car1 from "../assets/vehicle.avif";
+import car2 from "../assets/vehicle2.avif";
+import car3 from "../assets/vehicle3.avif";
+import car4 from "../assets/vehicle.avif";
+import car5 from "../assets/vehicle2.avif";
+import car6 from "../assets/vehicle3.avif";
+
+// 4. Define your Splide options. These will be passed to the client-side JS.
+const splideOptions = {
+  // type: 'loop', // Uncomment if you want a continuous loop
+  perPage: 1,
+  autoWidth: true,
+  gap: "30px",
+  focus: "center", // Standard string literal for core Splide.js
+  arrows: true,
+  pagination: true,
+};
+
+// 5. Define your slide data. This array will be mapped over in the HTML.
+const slides = [
+  {
+    img: car1.src,
+    alt: "Car 1 - Gli esordi.",
+    title: "The Ultimate Drive",
+    description:
+      "All'inizio, mi sono guardato intorno senza riuscire a trovare l'auto dei miei sogni. Così ho deciso di costruirmela da solo. - Prof. Dr. Ing. h.c. Ferry Porsche",
+  },
+  {
+    img: car2.src,
+    alt: "Car 2 - Precision Engineered",
+    title: "Precision Engineered",
+    description: "Crafted for exhilarating moments and unmatched control.",
+  },
+  {
+    img: car3.src,
+    alt: "Car 3 - Future of Motion",
+    title: "Future of Motion",
+    description: "Innovation meets tradition in a breathtaking design.",
+  },
+  {
+    img: car4.src,
+    alt: "Car 4 - Dynamic Performance",
+    title: "Dynamic Performance",
+    description: "Unleash the raw power with every acceleration.",
+  },
+  {
+    img: car5.src,
+    alt: "Car 5 - Masterpiece of Craft",
+    title: "Masterpiece of Craft",
+    description: "Artistry and engineering in perfect harmony.",
+  },
+  {
+    img: car6.src,
+    alt: "Car 6 - Iconic Legacy",
+    title: "Iconic Legacy",
+    description: "Driving the future, honoring the past.",
+  },
+];
+---
+
+<h2 class="text-5xl mt-52 mb-20 text-center leading-tight">
+  Il massimo livello di personalizzazione da<br /> oltre 70 anni.
+</h2>
+
+<div
+  class="my-porsche-splide relative overflow-hidden pt-[50px] pb-[50px] z-20 cursor-grab">
+  <div id="splide-main-slider" class="splide" aria-label="Porsche-like product slider">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {
+          slides.map((slide) => (
+            <li class="splide__slide">
+              <div
+                class="min-h-[650px] relative rounded-xl overflow-hidden object-cover flex-shrink-0
+                        md:h-[300px] sm:h-[250px]">
+                <img
+                  src={slide.img}
+                  alt={slide.alt}
+                  class="w-auto h-full max-w-[850px] object-cover block"
+                />
+                <div
+                  class="absolute inset-x-0 bottom-0 h-[70%] flex flex-col justify-end p-8 text-white
+                          bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 class="text-3xl font-semibold mb-2 leading-tight">{slide.title}</h3>
+                  <p class="text-xl leading-snug text-md">{slide.description}</p>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Re-define splideOptions here, as frontmatter variables are server-side.
+  const splideOptions = {
+    // type: 'loop',
+    perPage: 1,
+    autoWidth: true,
+    gap: "30px",
+    focus: "center",
+    arrows: true,
+    pagination: true,
+  };
+
+  // Get the main Splide element by its ID
+  const splideElement = document.getElementById("splide-main-slider");
+
+  // Initialize Splide if the element exists in the DOM
+  if (splideElement) {
+    const splideInstance = new Splide(splideElement, splideOptions);
+    splideInstance.mount();
+  } else {
+    // Log an error if the element isn't found (useful for debugging)
+    console.error(
+      "Splide element with ID 'splide-main-slider' not found for initialization!"
+    );
+  }
+</script>
+
+<style is:global>
+  /* Splide Arrows Container - Position this to the top-right */
+  .splide__arrows {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    z-index: 20;
+    transform: none; /* Override default centering transform */
+    display: flex; /* Arrange buttons side-by-side */
+    gap: 8px; /* Spacing between buttons */
+    padding: 1rem; /* Padding around the button group */
+  }
+  /* Individual Arrow Buttons */
+  .splide__arrow {
+    @apply flex items-center justify-center
+           w-10 h-10 rounded-full
+           bg-white/15 hover:bg-white/30
+           transition-colors duration-300 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50;
+
+    position: static; /* Let flexbox position them */
+    transform: none;
+    margin: 0;
+  }
+
+  /* Splide arrow SVG paths */
+  .splide__arrow svg {
+    @apply w-6 h-6 text-white;
+    fill: none;
+    stroke: currentColor;
+  }
+  .splide__arrow--prev svg path {
+    d: path("M15 19l-7-7 7-7");
+  }
+  .splide__arrow--next svg path {
+    d: path("M9 5l7 7-7 7");
+  }
+
+  /* Disable state for arrows */
+  .splide__arrow:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Pagination Dots */
+  .splide__pagination {
+    @apply absolute inset-x-0 bottom-0 flex justify-center p-4 z-10;
+  }
+  .splide__pagination__page {
+    @apply bg-white/40 opacity-100 w-[10px] h-[10px] rounded-full mx-[6px] transition-all duration-300 ease-in-out;
+  }
+  .splide__pagination__page.is-active {
+    @apply bg-white w-[14px] h-[14px] mx-[4px];
+  }
+</style>

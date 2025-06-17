@@ -1,0 +1,65 @@
+---
+import carPhoto from "@assets/vehicle.avif";
+import carMid from "@assets/vehicle2.avif";
+import carBottom from "@assets/vehicle3.avif";
+---
+
+<!-- // SECTION: /\/\/\/\/\ --><!-- first banner -->
+<div class="bannersSectionWrapper">
+  <div class="w-full grid grid-cols-12 gap-12 border justify-items-center">
+    <picture class="col-span-8 col-start-3 rounded-md">
+      <source srcset={carPhoto.src} type="image/avif" />
+      <img
+        class="rounded-xl"
+        src={carPhoto.src}
+        alt="Car"
+        width={carPhoto.width}
+        height={carPhoto.height}
+      />
+    </picture>
+  </div>
+
+  <!-- second banner -->
+  <div class="grid grid-cols-12 gap-12 border my-24">
+    <div class="dataDisplay col-span-3 col-start-3 mt-28 sticky top-44 h-fit mb-28">
+      <h1 class="text-7xl mb-12 font-medium">The one and always.</h1>
+      <p class="text-xl">
+        La 911 Carrera T: da oltre 55 anni 'T' non è sinonimo solo di Touring, ma
+        soprattutto di piacere di guida puristico, grazie alla struttura leggera
+        fuzionale, al rombo emozionante del motore, agli elementi di design caratteristici
+        e al cambio manuale preciso.
+      </p>
+    </div>
+    <div class="imgDiplay col-span-5 col-start-7">
+      <picture class="rounded-md">
+        <source srcset={carMid.src} type="image/avif" />
+        <img
+          class="rounded-xl"
+          src={carMid.src}
+          alt="Car"
+          width={carMid.width}
+          height={carMid.height}
+        />
+      </picture>
+    </div>
+  </div>
+
+  <!-- third banner -->
+  <div class="w-full grid grid-cols-12 gap-12 border justify-items-center">
+    <picture class="col-span-6 col-start-4 rounded-md">
+      <source srcset={carBottom.src} type="image/avif" />
+      <img
+        class="rounded-xl"
+        src={carBottom.src}
+        alt="Car"
+        width={carBottom.width}
+        height={carBottom.height}
+      />
+    </picture>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  console.log("using GSAP: ", gsap.version);
+</script>

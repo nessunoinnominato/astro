@@ -8,10 +8,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        // adds support for grid-cols-19
+        19: "repeat(19, minmax(0, 1fr))",
+      },
       fontFamily: {
         sans: [
-          "Bricolage Grotesque Variable",
-          "Inter Variable",
+          "Questrial",
+          "sans-serif",
           "Inter",
           ...defaultTheme.fontFamily.sans,
         ],
