@@ -6,7 +6,7 @@ import Porscheswiper from "@components/porscheswiper.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="PORCO DIOOOOOOOOOOOOOOOOOOOOOOOOOOOO">
+<Layout title="testgi">
   <!-- // SECTION: Mobile header???? -->
   <div
     class="grid grid-cols-6 w-full h-[80px] shadow-lg align-center py-4 bg-gradient-to-b from-black to-transparent absolute">
@@ -17,7 +17,7 @@ import Layout from "@layouts/Layout.astro";
 
   <!-- // SECTION: Hero section (img + main title) -->
   <div
-    class="w-full h-[540px] md:h-[350px] grid grid-cols-12"
+    class="w-full h-[540px] md:h-[350px] lg:h-[750px] grid grid-cols-12"
     style="
     background-image:
       linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
@@ -27,7 +27,7 @@ import Layout from "@layouts/Layout.astro";
     background-repeat: no-repeat;
   ">
     <h1
-      class="font-medium text-3xl text-white col-span-10 col-start-2 flex items-end py-10">
+      class="font-medium text-3xl lg:text-6xl lg:mb-12 text-white col-span-10 col-start-2 flex items-end py-10">
       Car Wrapping a Parma.
     </h1>
   </div>
@@ -35,7 +35,8 @@ import Layout from "@layouts/Layout.astro";
   <!-- // SECTION: Fixed anchor links -->
   <div
     class="grid grid-cols-12 w-full h-[70px] bg-white shadow-lg mb-32 sticky top-0 z-50">
-    <div class="data col-span-12 col-start-2 flex items-center text-gray-800 text-md">
+    <div
+      class="data col-span-12 col-start-2 lg:col-start-3 flex items-center text-gray-800 text-md">
       <button
         class="py-2 mr-4 hover:rounded-sm hover:bg-gray-200 duration-200 border-b-2 border-black"
         >Introduzione</button
@@ -57,7 +58,8 @@ import Layout from "@layouts/Layout.astro";
 
   <!-- // SECTION: Page introduction / Heritage design -->
   <div class="grid grid-cols-12 mb-16">
-    <h2 class="col-span-10 col-start-2 text-black font-semibold text-2xl text-center">
+    <h2
+      class="col-span-10 lg:col-span-8 col-start-2 lg:col-start-3 text-black font-semibold text-2xl text-center">
       Una Porsche deve essere una Porsche. Grazie all'esperienza. Alla passione. E alla
       tua ispirazione. E viene creata in un posto speciale: Porsche Exclusive Manufaktur.
     </h2>
@@ -67,26 +69,32 @@ import Layout from "@layouts/Layout.astro";
 
   <!-- // SECTION: Img + data banner display -->
   <section class="grid grid-cols-12 my-24 mb-36">
-    <div class="col-span-10 col-start-2 rounded-xl h-fit">
-      <div class="imgWrapper w-full rounded-t-xl overflow-hidden">
-        <img
-          src="https://images-porsche.imgix.net/-/media/BCC42F805B8144D897F6C9DD19C10A69_722C6BC6BE634839A50B1EBA3564F1B6_EX25W23OX0013-911-heritage-design-range?w=1759&q=85&auto=format"
-          alt=""
-          class="w-full h-[250px] md:h-[400px] object-cover"
-        />
-      </div>
+    <div class="col-span-10 col-start-2 h-fit">
+      <!-- Apply grid here -->
+      <div class="grid md:grid-cols-2">
+        <div
+          class="imgWrapper w-full rounded-t-xl md:rounded-l-xl md:rounded-r-none overflow-hidden md:h-[500px]">
+          <img
+            src="https://images-porsche.imgix.net/-/media/BCC42F805B8144D897F6C9DD19C10A69_722C6BC6BE634839A50B1EBA3564F1B6_EX25W23OX0013-911-heritage-design-range?w=1759&q=85&auto=format"
+            alt=""
+            class="w-full h-[250px] md:h-[500px] object-cover"
+          />
+        </div>
 
-      <div class="dataWrapper bg-black py-8 px-4 rounded-b-xl text-white">
-        <h3 class="text-white font-semibold text-3xl">Heritage Design.</h3>
-        <p class="text-white font-medium leading-normal !text-base !my-4">
-          Modelli da collezione in edizione limitata e pacchetti di equipaggiamento
-          riportano su strada lo stile di vita di epoche passate, rendendo omaggio alle
-          iconiche Porsche Classic con numerosi dettagli di design.
-        </p>
-        <button
-          class="bg-white text-base text-black rounded-sm w-full h-[55px] md:w-[200px]">
-          Scopri di più
-        </button>
+        <div
+          class="dataWrapper bg-black md:h-[500px] py-8 px-4 md:py-12 md:px-20 rounded-b-xlmd:rounded-l-none md:rounded-r-xl text-white md:flex md:items-start md:flex-col md:justify-center">
+          <h3 class="text-white font-semibold text-3xl">Heritage Design.</h3>
+          <p
+            class="text-white font-medium leading-normal !text-base !my-4 md:!mb-8 md:max-w-[600px]">
+            Modelli da collezione in edizione limitata e pacchetti di equipaggiamento
+            riportano su strada lo stile di vita di epoche passate, rendendo omaggio alle
+            iconiche Porsche Classic con numerosi dettagli di design.
+          </p>
+          <button
+            class="bg-white text-base text-black rounded-sm w-full h-[55px] md:w-[150px]">
+            Scopri di più
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -94,7 +102,7 @@ import Layout from "@layouts/Layout.astro";
   <!-- // SECTION: other pages box links -->
   <section class="grid grid-cols-12">
     <div
-      class="firstLink col-span-10 col-start-2 h-[300px] rounded-lg py-6 px-4 text-white mb-12"
+      class="firstLink col-span-10 md:col-span-5 md:col-start-2 md:mx-4 lg:col-start-3 lg:col-span-4 col-start-2 h-[300px] md:h-[350px] rounded-lg md:rounded-xl py-6 px-4 text-white mb-12"
       style="
     background-image:
       linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
@@ -110,7 +118,7 @@ import Layout from "@layouts/Layout.astro";
     </div>
     <!-- // NOTE: 2nd box -->
     <div
-      class="firstLink col-span-10 col-start-2 h-[300px] rounded-lg py-6 px-4 text-white mb-12"
+      class="secondLink col-span-10 col-start-2 md:col-span-5 md:col-start-7 lg:col-span-4 md:mx-4 h-[300px] md:h-[350px] rounded-lg md:rounded-xl py-6 px-4 text-white mb-12"
       style="
     background-image:
       linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
@@ -174,9 +182,9 @@ import Layout from "@layouts/Layout.astro";
 
   <!-- // Debug: -->
   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="bg-red-500 h-[400px] flex justify-center items-center">porcodio</div>
-    <div class="bg-blue-500 h-[400px] flex justify-center items-center">diocane</div>
-    <div class="bg-gray-500 h-[400px] flex justify-center items-center">diomerda</div>
+    <div class="bg-red-500 h-[400px] flex justify-center items-center">a</div>
+    <div class="bg-blue-500 h-[400px] flex justify-center items-center">b</div>
+    <div class="bg-gray-500 h-[400px] flex justify-center items-center">c</div>
   </section>
 
   <!-- // DESC: Styling below -->
