@@ -11,10 +11,11 @@ module.exports = {
       gridTemplateColumns: {
         // adds support for grid-cols-19
         19: "repeat(19, minmax(0, 1fr))",
+        18: "repeat(18, minmax(0, 1fr))",
       },
       fontFamily: {
         sans: [
-          "Questrial",
+          "DM Sans",
           "sans-serif",
           "Inter",
           ...defaultTheme.fontFamily.sans,

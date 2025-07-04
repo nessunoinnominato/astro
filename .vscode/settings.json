@@ -1,0 +1,57 @@
+{
+  "piny.project_settings": {
+    "open-pages": ["pinyfakepage.html"],
+    "component-settings": {
+      "src/pages/kamaleon.astro:::Temp": {
+        "route": "/kamaleon"
+      }
+    },
+    "app-routes": {
+      "routes": [
+        "/",
+        "/404",
+        "/about",
+        "/blog",
+        "/contact",
+        "/home",
+        "/kamaleon",
+        "/pricing",
+        "/vehicle"
+      ],
+      "current_route": "/kamaleon"
+    },
+    "tw-external-config": {
+      "external_config_url": "tailwind.config.cjs",
+      "external_source_url": "src/styles/global.css"
+    },
+    "source-folders": null,
+    "preview-url": "http://localhost:4321",
+    "urls": {
+      "pinyfakepage.html": {
+        "open-page-views": [
+          {
+            "w": 768,
+            "h": 0
+          }
+        ]
+      }
+    },
+    "recent-classes": [
+      "2",
+      "1",
+      "4",
+      "m",
+      "3",
+      "s",
+      "o",
+      "c",
+      "-",
+      "d",
+      "i",
+      "r",
+      ":",
+      "g",
+      "l"
+    ]
+  }
+}

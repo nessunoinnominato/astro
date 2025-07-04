@@ -2,7 +2,7 @@
 import mobileLogo from "@assets/mobileLogo.webp";
 import MobileLogo from "@components/porsche/mobileLogo.astro";
 import Sitelogo from "@components/sitelogo.astro";
-import Porscheswiper from "@components/porscheswiper.astro";
+import Porscheswiper from "@components/porsche/porscheSwiper.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
@@ -82,7 +82,7 @@ import Layout from "@layouts/Layout.astro";
         </div>
 
         <div
-          class="dataWrapper bg-black md:h-[500px] py-8 px-4 md:py-12 md:px-20 rounded-b-xlmd:rounded-l-none md:rounded-r-xl text-white md:flex md:items-start md:flex-col md:justify-center">
+          class="dataWrapper bg-black md:h-[500px] py-8 px-4 md:py-12 md:px-20 rounded-b-xl md:rounded-l-none md:rounded-r-xl text-white md:flex md:items-start md:flex-col md:justify-center">
           <h3 class="text-white font-semibold text-3xl">Heritage Design.</h3>
           <p
             class="text-white font-medium leading-normal !text-base !my-4 md:!mb-8 md:max-w-[600px]">
@@ -177,6 +177,211 @@ import Layout from "@layouts/Layout.astro";
         class="bg-white text-base text-black rounded-sm w-full h-[55px] md:bg-transparent md:text-white md:w-[200px] md:border-2">
         Scopri di più
       </button>
+    </div>
+  </section>
+
+  // Debug: 1st
+
+  <!-- Include Heroicons if you're using this in Astro or static HTML -->
+  <script src="https://unpkg.com/heroicons@2.0.16/dist/24/outline/index.umd.js"></script>
+
+  <section
+    class="max-w-[520px] rounded-xl border border-zinc-300 p-6 space-y-6 text-sm font-sans text-black shadow-sm">
+    <!-- Price + IVA -->
+    <div>
+      <div class="flex items-baseline gap-3">
+        <span class="text-3xl font-semibold">225.378,60 €</span>
+        <span class="text-sm text-zinc-500">IVA esposta</span>
+      </div>
+      <div class="mt-2 text-sm font-semibold">Personalizza la tariffa mensile:</div>
+      <div class="mt-1 space-x-4">
+        <a href="#" class="text-sm underline hover:text-black">Noleggio Lungo Termine</a>
+        <a href="#" class="text-sm underline hover:text-black">Leasing</a>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="space-y-3">
+      <button
+        class="w-full h-12 bg-black text-white font-medium rounded-md hover:opacity-90 transition">
+        Contattaci
+      </button>
+      <button
+        class="w-full h-12 border-2 border-black text-black font-medium rounded-md flex items-center justify-center gap-2 hover:bg-gray-50 transition">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 stroke-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 5v14l7-7 7 7V5z"
+          ></path>
+        </svg>
+        Salva
+      </button>
+    </div>
+
+    <!-- Dealership Info -->
+    <div class="space-y-1 text-sm">
+      <p class="font-semibold">Centro Porsche Trento</p>
+      <p>Via Alto Adige, 30</p>
+      <p>38121 Trento</p>
+    </div>
+
+    <!-- Car Info -->
+    <div class="space-y-4 text-sm">
+      <div class="flex flex-col">
+        <span class="text-zinc-500">Numero Vettura:</span>
+        <span class="flex items-center gap-1 font-semibold">
+          570
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 stroke-[1.5]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16h8m-4-8v8m-5 4a2 2 0 01-2-2V6a2 2 0 012-2h8l4 4v10a2 2 0 01-2 2H7z"
+            ></path>
+          </svg>
+        </span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-zinc-500">VIN:</span>
+        <span class="flex items-center gap-1 font-semibold">
+          WP0ZZZ991SS254570
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 stroke-[1.5]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16h8m-4-8v8m-5 4a2 2 0 01-2-2V6a2 2 0 012-2h8l4 4v10a2 2 0 01-2 2H7z"
+            ></path>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  // Debug: 2nd
+  <section>
+    <div class="w-[520px] h-[540px] relative">
+      <div
+        class="w-[520px] h-[540px] left-0 top-0 absolute bg-red-600/0 rounded-xl border-2 border-zinc-500">
+      </div>
+      <div
+        class="left-[39px] top-[308px] absolute justify-start text-black text-base font-semibold font-['Albert_Sans'] leading-normal">
+        Centro Porsche Trento
+      </div>
+      <div
+        class="left-[39px] top-[332px] absolute justify-start text-black text-base font-normal font-['Albert_Sans'] leading-normal">
+        Via Alto Adige, 30
+      </div>
+      <div
+        class="left-[39px] top-[356px] absolute justify-start text-black text-base font-normal font-['Albert_Sans'] leading-normal">
+        38121 Trento
+      </div>
+      <div
+        class="left-[39px] top-[417px] absolute justify-start text-black text-base font-semibold font-['Albert_Sans'] leading-normal">
+        570
+      </div>
+      <div
+        class="left-[39px] top-[393px] absolute justify-start text-zinc-500 text-sm font-normal font-['Albert_Sans'] leading-normal">
+        Numero Vettura:
+      </div>
+      <div
+        class="left-[39px] top-[478px] absolute justify-start text-black text-base font-semibold font-['Albert_Sans'] uppercase leading-normal [text-shadow:_0px_4px_4px_rgb(0_0_0_/_0.25)]">
+        293129890adwajwd92
+      </div>
+      <div
+        class="left-[39px] top-[454px] absolute justify-start text-zinc-500 text-sm font-normal font-['Albert_Sans'] leading-normal">
+        VIN:
+      </div>
+      <div
+        class="left-[40px] top-[108px] absolute justify-start text-black text-base font-normal font-['Albert_Sans'] leading-normal">
+        Noleggio Luno Termine
+      </div>
+      <div
+        class="left-[235px] top-[109px] absolute justify-start text-black text-base font-normal font-['Questrial'] leading-normal">
+        Leasing
+      </div>
+      <div
+        class="left-[39px] top-[84px] absolute justify-start text-black text-base font-semibold font-['Albert_Sans'] leading-normal">
+        Personalizza la tariffa mensile:
+      </div>
+      <div
+        class="left-[320px] top-[57px] absolute justify-start text-zinc-500 text-sm font-normal font-['Albert_Sans'] leading-normal">
+        IVA esposta
+      </div>
+      <div
+        class="left-[37px] top-[50px] absolute justify-start text-black text-4xl font-medium font-['Albert_Sans'] leading-normal">
+        225.378,60 €
+      </div>
+      <div
+        class="w-96 h-14 left-[37px] top-[147px] absolute bg-black rounded-[5px] border-2 border-black">
+      </div>
+      <div
+        class="left-[222px] top-[163px] absolute justify-start text-white text-base font-normal font-['Albert_Sans'] leading-normal">
+        Contattaci
+      </div>
+      <div
+        class="w-96 h-14 left-[37px] top-[218px] absolute bg-white/0 rounded-[5px] border-2 border-black">
+      </div>
+      <div
+        class="left-[240px] top-[234px] absolute justify-start text-black text-base font-normal font-['Albert_Sans'] leading-normal">
+        Salva
+      </div>
+    </div>
+  </section>
+
+  // Debug: 3rd
+  <section class="grid grid-cols-12 col-start-2 col-span-10 my-36 gap-6">
+    <!-- Porsche Car Configurator Card -->
+    <div class="relative rounded-lg md:rounded-xl overflow-hidden col-span-6 h-[500px]">
+      <img
+        src="/path-to-image/configurator.jpg"
+        alt="Porsche Car Configurator"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <div class="absolute bottom-0 p-6 text-white">
+        <h2 class="text-2xl lg:text-5xl mb-12">Porsche Car Configurator.</h2>
+        <p class="font-medium leading-normal my-4 md:mb-8">
+          Scopri le diverse opzioni per progettare la Porsche dei tuoi sogni esattamente
+          come la vuoi.
+        </p>
+        <button
+          class="w-full md:w-[200px] h-[55px] bg-black text-white font-medium rounded-md hover:opacity-90 transition">
+          Avvia la configurazione
+        </button>
+      </div>
+    </div>
+
+    <!-- Accessori Originali Card -->
+    <div class="relative rounded-lg md:rounded-xl overflow-hidden col-span-6 h-[500px]">
+      <img
+        src="/path-to-image/accessori.jpg"
+        alt="Accessori Originali"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <div class="absolute bottom-0 p-6 text-white">
+        <h2 class="text-2xl lg:text-5xl mb-12">Accessori originali.</h2>
+        <p class="font-medium leading-normal my-4 md:mb-8">
+          Prodotti che si adattano perfettamente alla tua Porsche: design di prima classe,
+          massima fruibilità quotidiana e la tipica qualità Porsche.
+        </p>
+        <button
+          class="w-full md:w-[200px] h-[55px] border-2 border-white text-white font-medium rounded-md flex items-center justify-center gap-2 hover:bg-white/10 transition">
+          Vai al programma accessori
+        </button>
+      </div>
     </div>
   </section>
 

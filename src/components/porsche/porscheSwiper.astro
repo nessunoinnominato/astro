@@ -1,0 +1,192 @@
+---
+// Desktop demo slides
+import slideOne from "@assets/slideOne.avif";
+import slideTwo from "@assets/slideTwo.avif";
+import slideThree from "@assets/slideThree.avif";
+import slideFour from "@assets/slideFour.avif";
+import slideFive from "@assets/slideFive.avif";
+
+// mobile slides
+import mobileOne from "@assets/mobileOne.avif";
+import mobileTwo from "@assets/mobileTwo.avif";
+import mobileThree from "@assets/mobileThree.avif";
+import mobileFour from "@assets/mobileFour.avif";
+import mobileFive from "@assets/mobileFive.avif";
+
+const { class: className = "", ...rest } = Astro.props;
+
+const slides = [
+  {
+    img: slideOne.src,
+    mobileImg: mobileOne.src,
+    alt: "Car 1 - Gli esordi.",
+    title: "Prestazioni su strada e fuoristrada.",
+    desc: "All'inizio, mi sono guardato intorno senza riuscire a trovare l'auto dei miei sogni. Così ho deciso di costruirmela da solo. - Prof. Dr. Ing. h.c. Ferry Porsche",
+  },
+  {
+    img: slideTwo.src,
+    mobileImg: mobileTwo.src,
+    alt: "Car 2 - Precision Engineered",
+    title: "Fari principali a LED Matrix.",
+    desc: "Crafted for exhilarating moments and unmatched control.",
+  },
+  {
+    img: slideThree.src,
+    mobileImg: mobileThree.src,
+    alt: "Car 3 - Future of Motion",
+    title: "Future of Motion",
+    desc: "Innovation meets tradition in a breathtaking design.",
+  },
+  {
+    img: slideFour.src,
+    mobileImg: mobileFour.src,
+    alt: "Car 4 - Dynamic Performance",
+    title: "Dynamic Performance",
+    desc: "Unleash the raw power with every acceleration.",
+  },
+  {
+    img: slideFive.src,
+    mobileImg: mobileFive.src,
+    alt: "Car 5 - Masterpiece of Craft",
+    title: "Masterpiece of Craft",
+    desc: "Artistry and engineering in perfect harmony.",
+  },
+];
+---
+
+<section class="select-none relative my-36">
+  <!-- Navigation Buttons -->
+  <div class="navWrapper h-20 w-full grid-cols-3 md:grid-cols-12 grid">
+    <div class="ctrls h-20 w-full col-start-3 md:col-start-11 flex mr-0 items-center">
+      <div
+        class="swiper-button-prev text-gray-800 hover:bg-gray-200 w-5 h-5 text-xl cursor-pointer rounded-sm top-0 static p-5 hover:duration-500">
+      </div>
+      <div
+        class="swiper-button-next text-gray-800 hover:bg-gray-200 w-5 h-5 text-sm cursor-pointer rounded-sm static p-5 hover:duration-500 hover:ease-in-out">
+      </div>
+    </div>
+  </div>
+  <div
+    class="swiper is-brands-slider relative min-h-fit pb-10 !w-auto overflow-x-hidden md:h-32">
+    <!-- swiper -->
+    <div class="swiper-wrapper cursor-grab md:h-fit">
+      {
+        slides.map(({ title, desc, img, mobileImg, alt }) => (
+          <div class="swiper-slide relative w-[80vw] h-[75vh] md:!w-auto md:h-fit rounded-xl">
+            <img
+              src={img}
+              srcset={`${mobileImg} 480w, ${img} 800w`}
+              sizes="(max-width: 768px) 100vw, 800px"
+              alt={alt}
+              class="
+          w-full
+          h-full
+          rounded-xl
+          object-cover
+          md:object-contain
+          md:h-[650px]
+        "
+            />
+            <div class="absolute inset-x-0 bottom-0 h-[70%] flex flex-col justify-end text-white bg-gradient-to-t from-black/80 to-transparent z-20 py-8 pl-8 pr-12 md:py-8 rounded-xl">
+              <h3 class="text-4xl md:text-1xl max-w-[80%] font-semibold leading-tight text-white mb-4">
+                {title}
+              </h3>
+              <p class="text-base leading-snug text-md text-white font-light">{desc}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Pagination -->
+    <div
+      class="swiper-pagination [&>span.swiper-pagination-bullet]:bg-gray-800 [&>span.swiper-pagination-bullet-active]:!bg-black">
+    </div>
+  </div>
+</section>
+
+<!-- non tailwind styling -->
+<style>
+  /* navigation */
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    /* only retarded way of changing swipers icon "font size" */
+    font-size: 16px;
+  }
+
+  /* pagination */
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: relative;
+    left: 50%;
+    top: 20px;
+    width: 100%;
+    height: 20px;
+  }
+
+  /* pagination bullets */
+  .swiper-pagination-bullet-active-main {
+    background-color: #000 !important;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #000 !important;
+  }
+</style>
+
+<!-- swiper  -->
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import { Navigation, Pagination } from "swiper/modules";
+
+  const originalWarn = console.warn;
+  console.warn = function (...args) {
+    if (
+      args[0] &&
+      typeof args[0] === "string" &&
+      args[0].includes("Swiper Loop Warning")
+    ) {
+      return;
+    }
+    originalWarn.apply(console, args);
+  };
+
+  function initSwiper() {
+    new Swiper(".is-brands-slider", {
+      modules: [Navigation, Pagination],
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      freeMode: true,
+      breakpoints: {
+        768: {
+          initialSlide: 1,
+        },
+      },
+      centeredSlides: true,
+      allowTouchMove: true,
+      rewind: true, // used for the other sliders
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        // type: "fraction",
+        dynamicBullets: true,
+        clickable: true,
+      },
+    });
+  }
+
+  document.addEventListener("astro:page-load", initSwiper);
+
+  if (document.readyState === "complete") {
+    initSwiper();
+  } else {
+    window.addEventListener("load", initSwiper);
+  }
+</script>

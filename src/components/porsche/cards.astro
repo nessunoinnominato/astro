@@ -1,0 +1,47 @@
+---
+import BtnTransp from "./btns/btnTransp.astro";
+const { title = "Missing title data" } = Astro.props;
+const { text = "Missing text data" } = Astro.props;
+---
+
+<section
+  class="tabsDisplay sm:grid md:grid grid-cols-8 lg:grid lg:gap-8 lg:grid-cols-12 gap-8">
+  <div
+    class="singleTab min-h-[550px] md:min-h-[800px] flex-col place-content-end border-solid rounded-xl lg:col-span-4 lg:col-start-3 mb-6 col-span-6 col-start-2 p-8"
+    style="
+    background-image:
+      linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
+      url('https://tinyurl.com/mr2mhny7');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
+    <div class="data !text-white">
+      <h3 class="mb-2 font-semibold lg:text-3xl text-white">{title}</h3>
+      <p class="text-base font-normal font-sans text-white mb-8">
+        {text}
+      </p>
+      <BtnTransp text="Avvia la configurazione" />
+    </div>
+  </div>
+  <!-- 2nd tab -->
+  <div
+    class="singleTab min-h-[550px] md:min-h-[800px] flex-col place-content-end border-solid rounded-xl lg:col-span-4 col-start-2 mb-6 lg:col-start-7 lg:relative lg:bottom-16 col-span-6 p-8"
+    style="
+    background-image:
+      linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
+      url('https://tinyurl.com/3zw9zymy');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
+    <div class="data text-white">
+      <h3 class="mb-2 font-semibold lg:text-3xl text-white">Accessori originali.</h3>
+      <p class="text-base font-normal font-sans text-white mb-8">
+        Prodotti che si adattano perfettamente alla tua Porsche: design di prima classe,
+        massima fruibilità quotidiana e la tipica qualità Porsche.
+      </p>
+      <BtnTransp text="Vai al programma accessori" />
+    </div>
+  </div>
+</section>

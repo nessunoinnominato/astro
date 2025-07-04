@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
+import PinyAstro from "@pinegrow/piny-astro";
 
 export default defineConfig({
   site: "https://b8e473bf.astro-ade.pages.dev/",
@@ -14,5 +15,5 @@ export default defineConfig({
       },
     },
   },
-  integrations: [svelte(), tailwind(), mdx(), sitemap(), icon()],
+  integrations: [svelte(), tailwind(), mdx(), sitemap(), icon(), PinyAstro()],
 });
