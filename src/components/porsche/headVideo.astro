@@ -1,0 +1,66 @@
+---
+import BtnTransp from "@components/porsche/btns/btnTransp.astro";
+import video from "@assets/911video.webm";
+import heroImage from "@assets/heroCarreraYellow.jpg";
+---
+
+<!-- // SECTION: Text sizing and Shit -->
+<section
+  class="headMain kdsGrid relative overflow-hidden h-screen text-white lg:grid lg:grid-cols-12 grid grid-cols-6 pb-32 px-8">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src={video} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- ✅ Foreground Content -->
+  <div
+    class="relative z-10 text-left lg:col-span-10 lg:col-start-2 col-span-6 h-full flex flex-col justify-end col-start-1">
+    <h1 class="text-white text-6xl md:text-8xl">Emozione 911.</h1>
+    <p class="data text-white text-base md:text-lg">
+      Brief service description in here or a SEO paragraph might go in here eventually.
+    </p>
+    <BtnTransp text="Informazioni sui nuovi modelli 911 4S" />
+  </div>
+</section>
+
+<section
+  class="tabs md:grid-cols-19 grid mt-14 md:gap-8 gap-6 grid-cols-12 max-w-screen-xl mx-auto">
+  <div
+    class="card select-none h-80 p-8 flex items-end rounded-xl justify-between mb-6 hover:cursor-pointer md:col-start-3 md:col-span-5 col-span-10 col-start-2"
+    style={`background-image:
+  linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
+  url(${heroImage.src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;`}>
+    <p class="text-white text-lg mb-0 leading-none">La nuova Macan CityLife.</p>
+    <p class="text-white leading-none mb-0">🡥</p>
+  </div>
+  <div
+    class="card select-none h-80 p-8 flex items-end md:col-span-5 rounded-xl justify-between mb-6 hover:cursor-pointer col-start-2 col-span-10"
+    style={`background-image:
+  linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
+  url(${heroImage.src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;`}>
+    <p class="text-white text-lg mb-0 leading-none">La nuova Macan CityLife.</p>
+    <p class="text-white leading-none mb-0">🡥</p>
+  </div>
+  <div
+    class="card select-none h-80 p-8 flex items-end md:col-span-5 rounded-xl justify-between mb-6 hover:cursor-pointer col-start-2 col-span-10"
+    style={`background-image:
+  linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
+  url(${heroImage.src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;`}>
+    <p class="text-white text-lg mb-0 leading-none">La nuova Macan CityLife.</p>
+    <p class="text-white leading-none mb-0">🡥</p>
+  </div>
+</section>

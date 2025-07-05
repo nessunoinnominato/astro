@@ -1,26 +1,16 @@
 ---
 import Container from "@components/container.astro";
-// import Cta from "@components/cta.astro";
-// import Features from "@components/features.astro";
-import Hero from "@components/hero.astro";
-import Demo from "@components/demo.astro";
-// import Logos from "@components/logos.astro";
+import Headvideo from "@components/porsche/headVideo.astro";
 import PorscheSwiper from "@components/porsche/porscheSwiper.astro";
+import CardsHero from "@components/porsche/cardsHero.astro";
 import Cards from "@components/porsche/cards.astro";
 import Layout from "@layouts/Layout.astro";
-
-const slides = [
-  {
-    alt: "dio sporco",
-    title: "dio porco maiale morto",
-    desc: "All'inizio, mi sono guardato intorno senza riuscire a trovare l'auto dei miei sogni. Così ho deciso di costruirmela da solo. - Prof. Dr. Ing. h.c. Ferry Porsche",
-  },
-];
 ---
 
 <Layout title="">
   <Container>
-    <Demo />
+    <Headvideo />
+    <CardsHero />
     <PorscheSwiper />
     <Cards
       title="Porsche Car Configurator."

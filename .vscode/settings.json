@@ -18,7 +18,7 @@
         "/pricing",
         "/vehicle"
       ],
-      "current_route": "/kamaleon"
+      "current_route": "/vehicle"
     },
     "tw-external-config": {
       "external_config_url": "tailwind.config.cjs",
@@ -30,7 +30,7 @@
       "pinyfakepage.html": {
         "open-page-views": [
           {
-            "w": 768,
+            "w": 1536,
             "h": 0
           }
         ]

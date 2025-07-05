@@ -5,9 +5,9 @@ const { text = "Missing text data" } = Astro.props;
 ---
 
 <section
-  class="tabsDisplay sm:grid md:grid grid-cols-8 lg:grid lg:gap-8 lg:grid-cols-12 gap-8">
+  class="tabsDisplay sm:grid md:grid grid-cols-12 lg:grid lg:gap-8 lg:grid-cols-12 gap-8 grid">
   <div
-    class="singleTab min-h-[550px] md:min-h-[800px] flex-col place-content-end border-solid rounded-xl lg:col-span-4 lg:col-start-3 mb-6 col-span-6 col-start-2 p-8"
+    class="singleTab min-h-[550px] md:min-h-[800px] flex-col place-content-end border-solid rounded-xl lg:col-span-4 lg:col-start-3 mb-6 col-span-10 col-start-2 p-8"
     style="
     background-image:
       linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),
@@ -18,7 +18,7 @@ const { text = "Missing text data" } = Astro.props;
   ">
     <div class="data !text-white">
       <h3 class="mb-2 font-semibold lg:text-3xl text-white">{title}</h3>
-      <p class="text-base font-normal font-sans text-white mb-8">
+      <p class="text-base font-normal font-sans text-white mb-8 max-w-xl">
         {text}
       </p>
       <BtnTransp text="Avvia la configurazione" />
@@ -26,7 +26,7 @@ const { text = "Missing text data" } = Astro.props;
   </div>
   <!-- 2nd tab -->
   <div
-    class="singleTab min-h-[550px] md:min-h-[800px] flex-col place-content-end border-solid rounded-xl lg:col-span-4 col-start-2 mb-6 lg:col-start-7 lg:relative lg:bottom-16 col-span-6 p-8"
+    class="singleTab min-h-[550px] md:min-h-[800px] flex-col place-content-end border-solid rounded-xl lg:col-span-4 col-start-2 mb-6 lg:col-start-7 lg:relative lg:bottom-16 col-span-10 p-8"
     style="
     background-image:
       linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%),

@@ -19,44 +19,54 @@ const slides = [
   {
     img: slideOne.src,
     mobileImg: mobileOne.src,
-    alt: "Car 1 - Gli esordi.",
     title: "Prestazioni su strada e fuoristrada.",
     desc: "All'inizio, mi sono guardato intorno senza riuscire a trovare l'auto dei miei sogni. Così ho deciso di costruirmela da solo. - Prof. Dr. Ing. h.c. Ferry Porsche",
   },
   {
     img: slideTwo.src,
     mobileImg: mobileTwo.src,
-    alt: "Car 2 - Precision Engineered",
     title: "Fari principali a LED Matrix.",
-    desc: "Crafted for exhilarating moments and unmatched control.",
+    desc: "Di serie con fari principali a LED Matrix, i fari principali LED HD-Matrix con oltre 64.000 pixel aumentano ulteriormente la funzionalità.",
   },
   {
     img: slideThree.src,
     mobileImg: mobileThree.src,
-    alt: "Car 3 - Future of Motion",
-    title: "Future of Motion",
-    desc: "Innovation meets tradition in a breathtaking design.",
+    title: "App Centre.",
+    desc: "L'App Centre offre un'esperienza interattiva con la possibilità di scaricare le tue app preferite da categorie quali streaming di musica e video, giochi e notizie.",
   },
   {
     img: slideFour.src,
     mobileImg: mobileFour.src,
-    alt: "Car 4 - Dynamic Performance",
-    title: "Dynamic Performance",
-    desc: "Unleash the raw power with every acceleration.",
+    title: "Sistemi di assistenza",
+    desc: "Tutti i modelli Cayenne possono essere dotati di numerosi sistemi di assistenza che aumentano ulteriormente il comfort di guida e migliorano la sicurezza.",
   },
   {
     img: slideFive.src,
     mobileImg: mobileFive.src,
-    alt: "Car 5 - Masterpiece of Craft",
-    title: "Masterpiece of Craft",
-    desc: "Artistry and engineering in perfect harmony.",
+    title: "E-Hybrid.",
+    desc: "L’attuale generazione di batterie dei modelli Cayenne E-Hybrid ha consentito di aumentare l’autonomia elettrica. Inoltre, il motore elettrico garantisce prestazioni di marcia superiori.",
   },
 ];
 ---
 
-<section class="select-none relative my-36">
+<!-- // Debug: Whenever the page gets loaded the slider loads, but slides aren't visible, 
+ last one is in view, and when scrolling to the first one none can be seen. 
+ Reloading the page seems to be fixing the issue though...-->
+<section class="my-36">
+  <div class="introData text-center mx-10 flex items-center flex-col">
+    <h2 class="!leading-none sm:!leading-tight">
+      Caratteristiche principali della Cayenne.
+    </h2>
+    <p class="max-w-4xl">
+      Oltre 20 anni fa ci siamo chiesti se una vettura sportiva potesse essere qualcosa di
+      più che l'espressione dell'individualità. La risposta è stata la Cayenne. Una
+      vettura che non ha cessato di evolversi. Per coloro che vogliono raggiungere luoghi
+      incontaminati.
+    </p>
+  </div>
   <!-- Navigation Buttons -->
   <div class="navWrapper h-20 w-full grid-cols-3 md:grid-cols-12 grid">
+    <!-- ctrl btns -->
     <div class="ctrls h-20 w-full col-start-3 md:col-start-11 flex mr-0 items-center">
       <div
         class="swiper-button-prev text-gray-800 hover:bg-gray-200 w-5 h-5 text-xl cursor-pointer rounded-sm top-0 static p-5 hover:duration-500">
@@ -66,18 +76,18 @@ const slides = [
       </div>
     </div>
   </div>
+  <!-- swiper -->
   <div
     class="swiper is-brands-slider relative min-h-fit pb-10 !w-auto overflow-x-hidden md:h-32">
-    <!-- swiper -->
-    <div class="swiper-wrapper cursor-grab md:h-fit">
+    <div class="swiper-wrapper select-none cursor-grab md:h-fit">
+      <!-- slide -->
       {
-        slides.map(({ title, desc, img, mobileImg, alt }) => (
+        slides.map(({ title, desc, img, mobileImg }) => (
           <div class="swiper-slide relative w-[80vw] h-[75vh] md:!w-auto md:h-fit rounded-xl">
             <img
               src={img}
               srcset={`${mobileImg} 480w, ${img} 800w`}
               sizes="(max-width: 768px) 100vw, 800px"
-              alt={alt}
               class="
           w-full
           h-full
@@ -162,7 +172,7 @@ const slides = [
       spaceBetween: 30,
       freeMode: true,
       breakpoints: {
-        768: {
+        1600: {
           initialSlide: 1,
         },
       },
@@ -182,11 +192,15 @@ const slides = [
     });
   }
 
-  document.addEventListener("astro:page-load", initSwiper);
-
-  if (document.readyState === "complete") {
-    initSwiper();
-  } else {
-    window.addEventListener("load", initSwiper);
+  function ready(cb) {
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      requestAnimationFrame(cb);
+    } else {
+      window.addEventListener("DOMContentLoaded", () => requestAnimationFrame(cb));
+    }
   }
+
+  ready(() => {
+    setTimeout(initSwiper, 50); // slight delay ensures layout is settled
+  });
 </script>
